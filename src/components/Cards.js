@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
+import blackHeartIcon from '../images/blackHeartIcon.svg';
 import Share from './Share';
 import '../styles/Cards.css';
 
@@ -34,7 +35,7 @@ function Cards(props) {
   // };
 
   const handleFavorite = ({ target }) => { // req 54: testar quando tivermos o local storage todo configurado
-    const targetID = target.value;
+    const targetID = target.closest('button').value;
     const newArray = faveRecipes.filter((recipe) => recipe.id !== targetID);
     setFaveRecipes(newArray);
 
@@ -72,13 +73,18 @@ function Cards(props) {
         testid={ `${index}-horizontal-share-btn` }
       />
       <button
-        data-testid={ `${index}-horizontal-favorite-btn` }
+        // data-testid={ `${index}-horizontal-favorite-btn` }
         type="button"
         value={ id }
-        src="src/images/blackHeartIcon.svg"
+        // src="src/images/blackHeartIcon.svg"
         onClick={ handleFavorite }
       >
-        Unfavorite
+        {/* Unfavorite */}
+        <img
+          data-testid={ `${index}-horizontal-favorite-btn` }
+          src={ blackHeartIcon }
+          alt="unfavorite"
+        />
       </button>
       <br />
       <div>
