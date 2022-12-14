@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import AppContext from '../context/AppContext';
 import '../styles/Meals.css';
 import Rectangle from '../images/Rectangle.svg';
-import iconePrato from '../images/icone-prato.svg';
 
 function Meals() {
   const {
