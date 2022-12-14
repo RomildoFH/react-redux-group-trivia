@@ -79,7 +79,7 @@ function RecipeInProgress() {
 
   return (
     <div>
-      <h1>Recipe In Progress</h1>
+      <h1 className="page-title">Recipe In Progress</h1>
       {
         isLoading
           ? <h3>Loading...</h3>
