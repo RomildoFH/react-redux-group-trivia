@@ -76,29 +76,45 @@ function DrinkInProgress(props) {
 
   return (
     <div>
-      <img
-        src={ recipe[0].strDrinkThumb }
-        alt={ recipe[0].strDrink }
-        data-testid="recipe-photo"
-        className="card-image"
-      />
-      <h3 data-testid="recipe-title">{ recipe[0].strDrink }</h3>
-      <Share
-        index="0"
-        type="drink"
-        id={ recipe[0].idDrink }
-        testid="share-btn"
-      />
-      <FavoriteButton
-        testid="favorite-btn"
-        recipe={ recipe[0] }
-        type="drink"
-      />
-      <div>
-        { wasShared && <p>Link copied!</p>}
+      <div className="inProgressCard">
+        <img
+          src={ recipe[0].strDrinkThumb }
+          alt={ recipe[0].strDrink }
+          data-testid="recipe-photo"
+          className="card-image"
+        />
+        <div className="inProgressData">
+          <h3
+            data-testid="recipe-title"
+            className="recipe-title"
+          >
+            { recipe[0].strDrink }
+          </h3>
+          <h4
+            data-testid="recipe-category"
+            className="recipe-category"
+          >
+            { recipe[0].strCategory }
+          </h4>
+          <p className="recipe-category">{ recipe[0].strAlcoholic }</p>
+          <div className="inProgressControls">
+            <Share
+              index="0"
+              type="drink"
+              id={ recipe[0].idDrink }
+              testid="share-btn"
+            />
+            <FavoriteButton
+              testid="favorite-btn"
+              recipe={ recipe[0] }
+              type="drink"
+            />
+            <div>
+              { wasShared && <p>Link copied!</p>}
+            </div>
+          </div>
+        </div>
       </div>
-      <h4 data-testid="recipe-category">{ recipe[0].strCategory }</h4>
-      <p>{ recipe[0].strAlcoholic }</p>
       <ul>
         {
           ingredients.map((ingredient, index) => (
@@ -111,12 +127,18 @@ function DrinkInProgress(props) {
           ))
         }
       </ul>
-      <p data-testid="instructions">{ recipe[0].strInstructions }</p>
+      <p
+        data-testid="instructions"
+        className="instructions"
+      >
+        { recipe[0].strInstructions }
+      </p>
       <button
         type="button"
         data-testid="finish-recipe-btn"
         disabled={ notAble }
         onClick={ finishRecipe }
+        className={ `btn-finish-${notAble}` }
       >
         Finish
       </button>
