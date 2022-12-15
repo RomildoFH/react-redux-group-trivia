@@ -49,7 +49,7 @@ function Meals() {
                 <button
                   className={ `${strCategory} categoryButton` }
                   type="button"
-                  key={ index }
+                  key={ `button ${index}` }
                   name={ strCategory }
                   data-testid={ `${strCategory}-category-filter` }
                   onClick={ ({ target }) => {
@@ -59,7 +59,7 @@ function Meals() {
                     setSelectedFilterCategory([target.closest('button').name]);
                   } }
                 >
-                  <img src={ Rectangle } alt={ strCategory } />
+                  <img key={ `image ${index}` } src={ Rectangle } alt={ strCategory } />
                 </button>
               );
             } return undefined;
@@ -81,7 +81,7 @@ function Meals() {
               return (
                 <section className="cardsLink">
                   <Link
-                    key={ key }
+                    key={ `card ${key}` }
                     data-testid={ `${key}-recipe-card` }
                     to={ `/meals/${idMeal}` }
                   >

@@ -15,7 +15,7 @@ function Header({ title }) {
   const { isSrchActive, srchToggle } = useContext(AppContext);
   return (
     <div className="headerDiv">
-      <nav>
+      <nav className="headerNav">
         <Link to="/meals">
           <img className="logoIcon" src={ logoIcon } alt="logo do app" />
           <img className="titleIcon" src={ titleIcon } alt="titulo do app" />
