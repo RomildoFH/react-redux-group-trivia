@@ -85,18 +85,20 @@ function FavoriteRecipes() {
         </button>
       </div>
       <br />
-      { faveRecipes !== null
-        && faveRecipes.map((recipe, index) => (<Cards
-          key={ index }
-          image={ recipe.image }
-          name={ recipe.name }
-          nationality={ recipe.nationality }
-          category={ recipe.category }
-          type={ recipe.type }
-          alcohol={ recipe.alcoholicOrNot }
-          index={ index }
-          id={ recipe.id }
-        />))}
+      <div className="favesContainer">
+        { faveRecipes !== null
+          && faveRecipes.map((recipe, index) => (<Cards
+            key={ index }
+            image={ recipe.image }
+            name={ recipe.name }
+            nationality={ recipe.nationality }
+            category={ recipe.category }
+            type={ recipe.type }
+            alcohol={ recipe.alcoholicOrNot }
+            index={ index }
+            id={ recipe.id }
+          />))}
+      </div>
       <Footer />
     </div>
   );

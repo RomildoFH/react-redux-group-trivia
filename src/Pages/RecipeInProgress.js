@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import MealInProgress from '../components/MealInProgress';
 import DrinkInProgress from '../components/DrinkInProgress';
 import '../styles/RecipeInProgress.css';
+import Header from '../components/Header';
 
 function RecipeInProgress() {
   const [type, setType] = useState('');
@@ -79,6 +80,7 @@ function RecipeInProgress() {
 
   return (
     <div>
+      <Header title="" />
       <h1 className="page-title">Recipe In Progress</h1>
       {
         isLoading

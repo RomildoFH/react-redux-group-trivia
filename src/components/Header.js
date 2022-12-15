@@ -48,7 +48,7 @@ function Header({ title }) {
       <div className="pageTitle">
         { title === 'Meals' && <img src={ titleMeals } alt="titulo meals" />}
         { title === 'Drinks' && <img src={ titleDrinks } alt="titulo drinks" />}
-        <h2 data-testid="page-title">{ title }</h2>
+        { title && <h2 data-testid="page-title">{ title }</h2> }
       </div>
       { isSrchActive && <SearchBar />}
     </div>
