@@ -4,13 +4,13 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 import FavoriteRecipes from '../Pages/FavoriteRecipes';
 import AppProvider from '../context/AppProvider';
-import faveRecipes from './helpers/mockFaveRecipes';
+// import faveRecipes from './helpers/mockFaveRecipes';
 
-const faveRecipesMock = faveRecipes;
+// const faveRecipesMock = faveRecipes;
 
-beforeEach(() => {
-  window.localStorage.setItem('favoriteRecipes', JSON.stringify(faveRecipesMock));
-});
+// beforeEach(() => {
+//   window.localStorage.setItem('favoriteRecipes', JSON.stringify(faveRecipesMock));
+// });
 
 describe('Testa a página Favorite Recipes', () => {
   test('se renderiza os três botões de filtro', () => {

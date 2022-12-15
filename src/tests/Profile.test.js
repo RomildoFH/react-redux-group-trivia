@@ -4,6 +4,13 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 import Profile from '../Pages/Profile';
 import AppProvider from '../context/AppProvider';
+import mockUser from './helpers/mockUserEmail';
+
+const userEmailMock = mockUser;
+
+beforeEach(() => {
+  window.localStorage.setItem('favoriteRecipes', JSON.stringify(userEmailMock));
+});
 
 describe('Testa a página Profile', () => {
   test('se a aplicação é redirecionada para a página de Receitas Feitas ao clicar no botão Done Recipes', () => {
@@ -22,7 +29,7 @@ describe('Testa a página Profile', () => {
     expect(pathname).toBe('/done-recipes');
   });
 
-  test('se a aplicação é redirecionada para a página de Receitas Feitas ao clicar no botão Done Recipes', () => {
+  test('se a aplicação é redirecionada para a página de Receitas Favoritas ao clicar no botão Favorite Recipes', () => {
     const { history } = renderWithRouter(
       <AppProvider>
         <Profile />
@@ -53,5 +60,16 @@ describe('Testa a página Profile', () => {
 
     const { pathname } = history.location;
     expect(pathname).toBe('/');
+  });
+
+  test('se o email do usuário é renderizado na página ', () => {
+    renderWithRouter(
+      <AppProvider>
+        <Profile />
+      </AppProvider>,
+    );
+
+    const email = screen.getByTestId('profile-email');
+    expect(email).toBeInTheDocument();
   });
 });
