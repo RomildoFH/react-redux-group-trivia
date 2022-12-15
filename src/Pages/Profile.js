@@ -8,8 +8,9 @@ import logout from '../images/logoutIcon.png';
 import '../styles/Profile.css';
 
 function Profile() {
-  const userEmail = JSON.parse(localStorage.getItem('user'));
-  const theEmail = Object.values(userEmail);
+  const userEmail = localStorage.getItem('user');
+  // const userEmail = JSON.parse(localStorage.getItem('user'));
+  // const theEmail = Object.values(userEmail);
 
   const history = useHistory();
 
@@ -31,7 +32,7 @@ function Profile() {
       <Header title="Profile" />
       {/* { theEmail !== null
          && <h2 data-testid="profile-email">{ theEmail }</h2>} */}
-      <h2 data-testid="profile-email">{ theEmail }</h2>
+      <h2 data-testid="profile-email">{ userEmail}</h2>
       <div className="done-recipes">
         <img
           src={ checkIcon }
