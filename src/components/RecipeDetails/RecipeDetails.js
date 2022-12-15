@@ -15,6 +15,7 @@ import List from '../List';
 import CardDetails from '../CardDetails';
 
 import '../../styles/RecipeDetails.css';
+import Header from '../Header';
 
 function RecipesDetails({ history }) {
   const [selectedCategory, setSelectedCategory] = useState({});
@@ -107,6 +108,7 @@ function RecipesDetails({ history }) {
 
   return (
     <div className="containerRecipeDetails">
+      <Header title="" />
       <CardDetails
         selectedCategory={ selectedCategory }
         history={ history }

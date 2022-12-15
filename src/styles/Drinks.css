@@ -1,12 +1,10 @@
 .categoryButtonsDrink {
   background-color: transparent;
   border: transparent;
-  height: 8rem;
-  width: 10rem;
 }
 
 .categoryButtonsDrink:hover {
-  scale: 1.8;
+  scale: 1.1;
 }
 
 .button0 {
@@ -33,20 +31,20 @@
   background: transparent url('../images/AllDrinksRecipes.svg') no-repeat center;
   background-color: transparent;
   border: 0;
-  height: 8rem;
-  width: 10rem;
 }
 
 .containerCardRecipesDrinks {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
+  max-height: 50px;
 }
 
 .navCategorysDrinks {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  max-height: 50px;
   padding-bottom: 10rem;
   text-align: center;
 }

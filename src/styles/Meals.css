@@ -1,12 +1,10 @@
 .categoryButton {
   background-color: transparent;
   border: transparent;
-  height: 8rem;
-  width: 10rem;
 }
 
 .categoryButton:hover {
-  scale: 1.8;
+  scale: 1.1;
 }
 
 .imgCardRecipe {
@@ -52,6 +50,7 @@ a:hover {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
+  max-height: 50px;
 }
 
 .all {

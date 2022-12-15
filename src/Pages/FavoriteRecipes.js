@@ -3,6 +3,10 @@ import React, { useEffect, useContext } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Cards from '../components/Cards';
+import '../styles/DoneRecipes.css';
+import All from '../images/All.png';
+import foods from '../images/foods.png';
+import drinks from '../images/drinks.png';
 import AppContext from '../context/AppContext';
 
 function FavoriteRecipes() {
@@ -11,7 +15,8 @@ function FavoriteRecipes() {
   // console.log(retrieveFaveRecipes);
 
   const handleFilter = ({ target }) => {
-    const chooseFilter = target.name;
+    const chooseFilter = target.closest('button').name;
+    // const chooseFilter = target.name;
     // console.log(chooseFilter);
 
     if (chooseFilter === 'all') {
@@ -35,45 +40,65 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header title="Favorite Recipes" />
-      <div>
+      <div className="filters">
         <button
-          data-testid="filter-by-all-btn"
+          className="doneFiltersAll"
+          // data-testid="filter-by-all-btn"
           type="button"
           name="all"
           onClick={ handleFilter }
         >
-          All
+          <img
+            data-testid="filter-by-all-btn"
+            src={ All }
+            alt="all"
+          />
+          {/* All */}
         </button>
         <button
-          data-testid="filter-by-meal-btn"
+          className="doneFiltersMeals"
+          // data-testid="filter-by-meal-btn"
           type="button"
           name="meals"
           onClick={ handleFilter }
         >
-          Meals
+          <img
+            data-testid="filter-by-meal-btn"
+            src={ foods }
+            alt="foods"
+          />
+          {/* Meals */}
         </button>
         <button
-          data-testid="filter-by-drink-btn"
+          className="doneFiltersDrinks"
+          // data-testid="filter-by-drink-btn"
           type="button"
           name="drinks"
           onClick={ handleFilter }
         >
-          Drinks
+          <img
+            data-testid="filter-by-drink-btn"
+            src={ drinks }
+            alt="drinks"
+          />
+          {/* Drinks */}
         </button>
       </div>
       <br />
-      { faveRecipes !== null
-        && faveRecipes.map((recipe, index) => (<Cards
-          key={ index }
-          image={ recipe.image }
-          name={ recipe.name }
-          nationality={ recipe.nationality }
-          category={ recipe.category }
-          type={ recipe.type }
-          alcohol={ recipe.alcoholicOrNot }
-          index={ index }
-          id={ recipe.id }
-        />))}
+      <div className="favesContainer">
+        { faveRecipes !== null
+          && faveRecipes.map((recipe, index) => (<Cards
+            key={ index }
+            image={ recipe.image }
+            name={ recipe.name }
+            nationality={ recipe.nationality }
+            category={ recipe.category }
+            type={ recipe.type }
+            alcohol={ recipe.alcoholicOrNot }
+            index={ index }
+            id={ recipe.id }
+          />))}
+      </div>
       <Footer />
     </div>
   );
