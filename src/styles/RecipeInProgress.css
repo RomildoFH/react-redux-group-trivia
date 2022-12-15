@@ -5,8 +5,9 @@
 }
 
 .card-image {
+  background-size: contain;
   border-radius: 50%;
-  width: 110px;
+  width: 150px;
 }
 
 .inProgressCard {
@@ -76,15 +77,23 @@ ul {
 }
 
 .instructions {
+  border: 2px solid white;
+  border-radius: 16px;
+  font-size: 12px;
+  margin: 0 4px;
   max-height: 150px;
   overflow: scroll;
+  padding: 2px;
   text-align: justify;
 }
 
 .btn-finish-false {
-  background-color: rgb(13, 128, 236);
+  background-color: rgb(252, 196, 54);
+  border: none;
+  border-radius: 5px;
   color: white;
   font-weight: 800;
+  height: 40px;
   margin-left: auto;
   margin-right: auto;
   text-transform: uppercase;
@@ -92,7 +101,10 @@ ul {
 }
 
 .btn-finish-true {
+  border-radius: 5px;
+  height: 40px;
   margin-left: auto;
   margin-right: auto;
+  text-transform: uppercase;
   width: 100%;
 }

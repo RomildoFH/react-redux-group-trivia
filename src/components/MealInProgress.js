@@ -82,7 +82,10 @@ function MealInProgress(props) {
 
   return (
     <div>
-      <div className="inProgressCard">
+      <div
+        className="inProgressCard"
+        // style={ { backgroundImage: `url(${strMealThumb})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' } }
+      >
         <img
           src={ recipe[0].strMealThumb }
           alt={ recipe[0].strMeal }
