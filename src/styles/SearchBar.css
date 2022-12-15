@@ -1,0 +1,43 @@
+.searchDiv {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  width: 340px;
+}
+
+.searchInput {
+  width: 340px;
+}
+
+.searchOptionsDiv {
+  display: inline-block;
+  text-align: center;
+}
+
+.searchOptionsDiv label {
+  display: inline-block;
+  margin: 8px;
+}
+
+.searchOptionsDiv button {
+  background-color: #fcc436;
+  border-radius: 20px;
+  display: inline-block;
+  height: 40px;
+  margin: 0 20px 0 0;
+  padding: 0;
+  text-align: center;
+  width: 300px;
+}
+
+.searchOptionsDiv span {
+  margin: 0 4px;
+}
+
+.searchOptionsDiv button span {
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+

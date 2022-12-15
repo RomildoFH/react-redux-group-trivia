@@ -38,7 +38,6 @@ function Meals() {
   return (
     <div>
       <Header title="Meals" />
-      <h1>Meals</h1>
       <p>Categorias</p>
       {categorysFoods
         && categorysFoods.map(({ strCategory }, index) => {

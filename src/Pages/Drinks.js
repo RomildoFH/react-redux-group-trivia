@@ -30,7 +30,6 @@ function Drinks() {
   return (
     <div>
       <Header title="Drinks" />
-      Drinks
       <p>Categorias</p>
       {categorysDrinks
         && categorysDrinks.map(({ strCategory }, index) => {
