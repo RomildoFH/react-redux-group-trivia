@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import '../styles/SearchBar.css';
 import { useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
@@ -110,44 +111,56 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="searchDiv">
       <input
         type="text"
         data-testid="search-input"
         value={ inputValue }
         onChange={ handleChange }
+        className="searchInput"
       />
-      <input
-        type="radio"
-        value="ingredient"
-        name="teste"
-        onChange={ () => setSearchCat(ing) }
-        data-testid="ingredient-search-radio"
-      />
-      Ingredient
-      <input
-        type="radio"
-        value="name"
-        name="teste"
-        onChange={ () => setSearchCat(nam) }
-        data-testid="name-search-radio"
-      />
-      Name
-      <input
-        type="radio"
-        value="first-letter"
-        name="teste"
-        onChange={ () => setSearchCat(fst) }
-        data-testid="first-letter-search-radio"
-      />
-      First Letter
-      <button
-        type="button"
-        data-testid="exec-search-btn"
-        onClick={ requestSearch }
-      >
-        Search
-      </button>
+      <div className="searchOptionsDiv">
+        <label htmlFor="ingredient">
+          <input
+            type="radio"
+            value="ingredient"
+            id="ingredient"
+            name="teste"
+            onChange={ () => setSearchCat(ing) }
+            data-testid="ingredient-search-radio"
+          />
+          <span>Ingredient</span>
+        </label>
+        <label htmlFor="name">
+          <input
+            type="radio"
+            value="name"
+            id="name"
+            name="teste"
+            onChange={ () => setSearchCat(nam) }
+            data-testid="name-search-radio"
+          />
+          <span>Name</span>
+        </label>
+        <label htmlFor="first-letter">
+          <input
+            type="radio"
+            value="first-letter"
+            id="first-letter"
+            name="teste"
+            onChange={ () => setSearchCat(fst) }
+            data-testid="first-letter-search-radio"
+          />
+          <span>First Letter</span>
+        </label>
+        <button
+          type="button"
+          data-testid="exec-search-btn"
+          onClick={ requestSearch }
+        >
+          <span>Search</span>
+        </button>
+      </div>
     </div>
   );
 }
