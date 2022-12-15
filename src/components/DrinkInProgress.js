@@ -75,7 +75,7 @@ function DrinkInProgress(props) {
   };
 
   return (
-    <div>
+    <div className="recipeInProgressContainer">
       <div className="inProgressCard">
         <img
           src={ recipe[0].strDrinkThumb }
