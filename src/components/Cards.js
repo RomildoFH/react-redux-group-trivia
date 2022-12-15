@@ -43,8 +43,9 @@ function Cards(props) {
   };
 
   return (
-    <div>
+    <div className="theCard">
       <Link
+        className="cardImage"
         to={ type === 'meal' ? `/meals/${id}` : `/drinks/${id}` }
       >
         <img
@@ -53,43 +54,53 @@ function Cards(props) {
           src={ image }
           alt={ name }
         />
-        <h3 data-testid={ `${index}-horizontal-name` }>{ name }</h3>
+        {/* <h3 data-testid={ `${index}-horizontal-name` }>{ name }</h3> */}
       </Link>
-      {
-        type === 'meal'
-          ? (
-            <h4
-              data-testid={ `${index}-horizontal-top-text` }
-            >
-              {`${nationality} - ${category}`}
-            </h4>)
-          : (
-            <h4 data-testid={ `${index}-horizontal-top-text` }>{alcohol}</h4>)
-      }
-      <Share
-        index={ index }
-        type={ type }
-        id={ id }
-        testid={ `${index}-horizontal-share-btn` }
-      />
-      <button
-        // data-testid={ `${index}-horizontal-favorite-btn` }
-        type="button"
-        value={ id }
-        // src="src/images/blackHeartIcon.svg"
-        onClick={ handleFavorite }
-      >
-        {/* Unfavorite */}
-        <img
-          data-testid={ `${index}-horizontal-favorite-btn` }
-          src={ blackHeartIcon }
-          alt="unfavorite"
-        />
-      </button>
-      <br />
-      <div>
-        { wasShared && <p>Link copied!</p>}
+      <div className="cardInfos">
+        <Link
+          to={ type === 'meal' ? `/meals/${id}` : `/drinks/${id}` }
+        >
+          <h3 data-testid={ `${index}-horizontal-name` }>{ name }</h3>
+        </Link>
+        {
+          type === 'meal'
+            ? (
+              <h4
+                data-testid={ `${index}-horizontal-top-text` }
+              >
+                {`${nationality} - ${category}`}
+              </h4>)
+            : (
+              <h4 data-testid={ `${index}-horizontal-top-text` }>{alcohol}</h4>)
+        }
       </div>
+      <div className="buttons">
+        <Share
+          index={ index }
+          type={ type }
+          id={ id }
+          testid={ `${index}-horizontal-share-btn` }
+        />
+        <button
+        // data-testid={ `${index}-horizontal-favorite-btn` }
+          type="button"
+          value={ id }
+          // src="src/images/blackHeartIcon.svg"
+          onClick={ handleFavorite }
+        >
+          {/* Unfavorite */}
+          <img
+            data-testid={ `${index}-horizontal-favorite-btn` }
+            src={ blackHeartIcon }
+            alt="unfavorite"
+          />
+        </button>
+        <br />
+        <div>
+          { wasShared && <p>Link copied!</p>}
+        </div>
+      </div>
+
     </div>
   );
 }

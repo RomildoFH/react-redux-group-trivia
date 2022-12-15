@@ -1,3 +1,39 @@
+.theCard {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  border-radius: 16px;
+  margin: 16px 1px;
+  padding: 12px;
+  width: 300px;
+}
+
+.cardImage {
+  display: flex;
+  flex-direction: column;
+}
+
 .card-image {
-  width: 220px;
+  border-radius: 50%;
+  width: 110px;
+}
+
+.cardInfos {
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.uniqueCard h3 {
+  font-size: 14px;
+}
+
+.uniqueCard h4 {
+  font-size: 12px;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.buttons button {
+  margin: 5px;
 }
