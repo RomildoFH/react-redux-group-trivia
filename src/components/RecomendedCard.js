@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function RecomendedCard(props) {
   const {
@@ -9,25 +10,33 @@ function RecomendedCard(props) {
   return (
     <div className="containerRecomended">
       {history.location.pathname.includes('meal')
-          && recomended.length > 0
-          && recomended[0].strDrinkThumb
-          && recomended.map((element, index) => (
-            <div key={ index } data-testid={ `${index}-recommendation-card` }>
-              <img
-                src={ element.strDrinkThumb }
-                alt={ element.strDrink }
-                className="imgRecomended"
-              />
-              <p data-testid={ `${index}-recommendation-title` }>
-                {element.strDrink}
-              </p>
-            </div>
-          ))}
+            && recomended.length > 0
+            && recomended[0].strDrinkThumb
+            && recomended.map((element, index) => (
+              <Link
+                to={ `/drinks/${element.idDrink}` }
+                key={ index }
+                data-testid={ `${index}-recommendation-card` }
+              >
+                <img
+                  src={ element.strDrinkThumb }
+                  alt={ element.strDrink }
+                  className="imgRecomended"
+                />
+                <p data-testid={ `${index}-recommendation-title` }>
+                  {element.strDrink}
+                </p>
+              </Link>
+            ))}
       {history.location.pathname.includes('drink')
           && recomended.length > 0
           && recomended[0].strMealThumb
           && recomended.map((element, index) => (
-            <div key={ index } data-testid={ `${index}-recommendation-card` }>
+            <Link
+              key={ index }
+              data-testid={ `${index}-recommendation-card` }
+              to={ `/meals/${element.idMeal}` }
+            >
               <img
                 src={ element.strMealThumb }
                 alt={ element.strMeal }
@@ -36,7 +45,7 @@ function RecomendedCard(props) {
               <p data-testid={ `${index}-recommendation-title` }>
                 {element.strMeal}
               </p>
-            </div>
+            </Link>
           ))}
     </div>
   );

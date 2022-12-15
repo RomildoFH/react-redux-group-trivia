@@ -192,4 +192,19 @@ describe('TESTANDO O COMPONENT RECIPEDETAILS', () => {
 
     userEvent.click(continueRecipe);
   });
+
+  it('verifica se ao carregar os detalhes de uma receita já iniciada o botão continue recipe é renderizado na tela', async () => {
+    const { history } = renderWithRouter(
+      <AppProvider>
+        <App />
+      </AppProvider>,
+    );
+    act(() => {
+      history.push(drink);
+    });
+
+    expect(history.location.pathname).toBe(drink);
+
+    console.log(localStorage.getItem('inProgressRecipes'));
+  });
 });
