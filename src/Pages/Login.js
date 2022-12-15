@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import '../styles/Login.css';
 import { useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
@@ -63,33 +64,39 @@ function Login() {
   };
 
   return (
-    <div>
-      <form>
-        <input
-          name="email"
-          type="email"
-          data-testid="email-input"
-          value={ email }
-          onChange={ handleChange }
-          placeholder="email"
-        />
-        <input
-          name="password"
-          type="password"
-          data-testid="password-input"
-          value={ password }
-          onChange={ handleChange }
-          placeholder="******"
-        />
-        <button
-          type="button"
-          data-testid="login-submit-btn"
-          disabled={ !valid }
-          onClick={ handleClick }
-        >
-          Enter
-        </button>
-      </form>
+    <div className="loginContainer">
+      <div className="formContainer">
+        <h1>Login</h1>
+        <form>
+          <input
+            name="email"
+            type="email"
+            data-testid="email-input"
+            value={ email }
+            onChange={ handleChange }
+            placeholder="email"
+            className="emailInput"
+          />
+          <input
+            name="password"
+            type="password"
+            data-testid="password-input"
+            value={ password }
+            onChange={ handleChange }
+            placeholder="******"
+            className="pwInput"
+          />
+          <button
+            type="button"
+            data-testid="login-submit-btn"
+            disabled={ !valid }
+            onClick={ handleClick }
+            className="submitBtn"
+          >
+            Enter
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
