@@ -1,0 +1,54 @@
+.loginContainer {
+  height: 640px;
+  width: 360px;
+  background-image: url(../images/loginPage.svg);
+  background-repeat: no-repeat;
+  background-position: top -60px right;
+  overflow: hidden;
+}
+
+.formContainer {
+  position: relative;
+  top: 450px;
+  text-align: center;
+  width: 360px;
+}
+
+.formContainer h1 {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 300;
+  color: #41197f;
+}
+
+.formContainer input {
+  margin-bottom: 4px;
+}
+
+.emailInput {
+  border-radius: 5px;
+  display: inline-block;
+  width: 300px;
+  border-color: rgb(200, 200, 200);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.pwInput {
+  border-radius: 5px;
+  display: inline-block;
+  width: 300px;
+  border-color: rgb(200, 200, 200);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.submitBtn {
+  background-color: #fcc436;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+  display: inline-block;
+  width: 300px;
+}
