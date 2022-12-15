@@ -14,6 +14,7 @@ import RecomendedCard from '../RecomendedCard';
 import List from '../List';
 import CardDetails from '../CardDetails';
 import FavoriteAndShare from '../FavoriteAndShare';
+import Header from '../Header';
 
 function RecipesDetails({ history }) {
   const [selectedCategory, setSelectedCategory] = useState({});
@@ -106,6 +107,7 @@ function RecipesDetails({ history }) {
 
   return (
     <div>
+      <Header title="" />
       <CardDetails
         selectedCategory={ selectedCategory }
         history={ history }
