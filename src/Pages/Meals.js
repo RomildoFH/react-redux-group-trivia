@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import Header from '../components/Header';
 import AppContext from '../context/AppContext';
+import '../styles/Meals.css';
+import Rectangle from '../images/Rectangle.svg';
 
 function Meals() {
   const {
@@ -38,56 +40,65 @@ function Meals() {
   return (
     <div>
       <Header title="Meals" />
-      <p>Categorias</p>
-      {categorysFoods
-        && categorysFoods.map(({ strCategory }, index) => {
-          const five = 5;
-          if (index < five) {
-            return (
-              <button
-                type="button"
-                key={ index }
-                data-testid={ `${strCategory}-category-filter` }
-                onClick={ ({ target }) => {
-                  if (target.innerHTML === selectedFilterCategory[0]) {
-                    return setSelectedFilterCategory([]);
-                  }
-                  setSelectedFilterCategory([target.innerHTML]);
-                } }
-              >
-                {strCategory}
-              </button>
-            );
-          } return undefined;
-        })}
-      <button
-        type="button"
-        onClick={ () => setSelectedFilterCategory([]) }
-        data-testid="All-category-filter"
-      >
-        All
-      </button>
-      {dataFoods.meals
-        && dataFoods.meals.map(({ strMeal, strMealThumb, idMeal }, key) => {
-          const twelve = 12;
-          if (key < twelve) {
-            return (
-              <Link
-                key={ key }
-                data-testid={ `${key}-recipe-card` }
-                to={ `/meals/${idMeal}` }
-              >
-                <p data-testid={ `${key}-card-name` }>{strMeal}</p>
-                <img
-                  src={ strMealThumb }
-                  data-testid={ `${key}-card-img` }
-                  alt={ `receita do prato ${strMeal}` }
-                />
-              </Link>
-            );
-          }
-          return undefined;
-        })}
+      <nav className="navCategorys">
+        {categorysFoods
+          && categorysFoods.map(({ strCategory }, index) => {
+            const five = 5;
+            if (index < five) {
+              return (
+                <button
+                  className={ `${strCategory} categoryButton` }
+                  type="button"
+                  key={ index }
+                  name={ strCategory }
+                  data-testid={ `${strCategory}-category-filter` }
+                  onClick={ ({ target }) => {
+                    if (target.closest('button').name === selectedFilterCategory[0]) {
+                      return setSelectedFilterCategory([]);
+                    }
+                    setSelectedFilterCategory([target.closest('button').name]);
+                  } }
+                >
+                  <img src={ Rectangle } alt={ strCategory } />
+                </button>
+              );
+            } return undefined;
+          })}
+        <button
+          className="categoryButton all"
+          type="button"
+          onClick={ () => setSelectedFilterCategory([]) }
+          data-testid="All-category-filter"
+        >
+          <img src={ Rectangle } alt="todos os pratos" />
+        </button>
+      </nav>
+      <section className="containerCardRecipes">
+        {dataFoods.meals
+          && dataFoods.meals.map(({ strMeal, strMealThumb, idMeal }, key) => {
+            const twelve = 12;
+            if (key < twelve) {
+              return (
+                <section className="cardsLink">
+                  <Link
+                    key={ key }
+                    data-testid={ `${key}-recipe-card` }
+                    to={ `/meals/${idMeal}` }
+                  >
+                    <img
+                      className="imgCardRecipe"
+                      src={ strMealThumb }
+                      data-testid={ `${key}-card-img` }
+                      alt={ `receita do prato ${strMeal}` }
+                    />
+                    <p data-testid={ `${key}-card-name` }>{strMeal}</p>
+                  </Link>
+                </section>
+              );
+            }
+            return undefined;
+          })}
+      </section>
     </div>
   );
 }
