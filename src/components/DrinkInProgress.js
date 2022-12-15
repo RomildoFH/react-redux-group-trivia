@@ -109,9 +109,9 @@ function DrinkInProgress(props) {
               recipe={ recipe[0] }
               type="drink"
             />
-            <div>
-              { wasShared && <p>Link copied!</p>}
-            </div>
+          </div>
+          <div className="copied-container">
+            { wasShared && <p>Link copied!</p>}
           </div>
         </div>
       </div>

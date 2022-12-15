@@ -117,13 +117,13 @@ function MealInProgress(props) {
               recipe={ recipe[0] }
               type="meal"
             />
-            <div>
-              { wasShared && <p>Link copied!</p>}
-            </div>
+          </div>
+          <div className="copied-container">
+            { wasShared && <p>Link copied!</p>}
           </div>
         </div>
       </div>
-      <ul>
+      <ul className="ingredients-list">
         {
           ingredients.map((ingredient, index) => (
             <CheckBoxIngredients
