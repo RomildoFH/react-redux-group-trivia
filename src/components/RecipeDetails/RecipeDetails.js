@@ -13,7 +13,8 @@ import '../../styles/RecomendedRecipes.css';
 import RecomendedCard from '../RecomendedCard';
 import List from '../List';
 import CardDetails from '../CardDetails';
-import FavoriteAndShare from '../FavoriteAndShare';
+
+import '../../styles/RecipeDetails.css';
 import Header from '../Header';
 
 function RecipesDetails({ history }) {
@@ -106,7 +107,7 @@ function RecipesDetails({ history }) {
   ]);
 
   return (
-    <div>
+    <div className="containerRecipeDetails">
       <Header title="" />
       <CardDetails
         selectedCategory={ selectedCategory }
@@ -115,35 +116,34 @@ function RecipesDetails({ history }) {
 
       <List
         selectedCategory={ selectedCategory }
-      />
-
-      <FavoriteAndShare
-        selectedCategory={ selectedCategory }
         history={ history }
       />
 
       <RecomendedCard
         recomended={ recomended }
+        selectedCategory={ selectedCategory }
         history={ history }
       />
-      {!isLoading && (
-        <button
-          type="button"
-          data-testid="start-recipe-btn"
-          style={ { position: 'fixed', bottom: '0' } }
-          onClick={ async () => {
-            if (history.location.pathname.includes('meal')) {
-              await dataContext.setRecipesInProgress([selectedCategory]);
-              history.push(`/meals/${selectedCategory.id}/in-progress`);
-            } else {
+      <div>
+        {!isLoading && (
+          <button
+            type="button"
+            className="btnStartRecipe"
+            data-testid="start-recipe-btn"
+            style={ { position: 'fixed', bottom: '0' } }
+            onClick={ async () => {
+              if (history.location.pathname.includes('meal')) {
+                await dataContext.setRecipesInProgress([selectedCategory]);
+                return history.push(`/meals/${selectedCategory.id}/in-progress`);
+              }
               await dataContext.setRecipesInProgress([selectedCategory]);
               history.push(`/drinks/${selectedCategory.id}/in-progress`);
-            }
-          } }
-        >
-          { !recipeInProgress ? 'Start Recipe' : 'Continue Recipe'}
-        </button>
-      ) }
+            } }
+          >
+            { !recipeInProgress ? 'Start Recipe' : 'Continue Recipe'}
+          </button>
+        ) }
+      </div>
     </div>
   );
 }

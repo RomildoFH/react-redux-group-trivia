@@ -5,49 +5,58 @@ import Share from './Share';
 import FavoriteButton from './FavoriteButton';
 import AppContext from '../context/AppContext';
 
+import '../styles/RecipeDetails.css';
+
 function FavoriteAndShare(props) {
   const {
     history,
     selectedCategory,
   } = props;
-  // console.log(selectedCategory.alcoholic);
+
   const dataContext = useContext(AppContext);
+
   return (
-    <div>
+    <div className="favoriteAndShareBtn">
       {history.location.pathname.includes('drink') ? (
         <>
-          <Share type="drink" id={ selectedCategory.id } testid="share-btn" />
-          <FavoriteButton
-            type="drink"
-            recipe={ {
-              idDrink: selectedCategory.id,
-              // alcoholicOrNot: selectedCategory.alcoholic,
-              strDrink: selectedCategory.title,
-              strCategory: selectedCategory.category,
-              strDrinkThumb: selectedCategory.thumb,
-              strAlcoholic: selectedCategory.alcoholic,
-              // category: selectedCategory.category,
-              type: 'drink',
-            } }
-            testid="favorite-btn"
-          />
+          <div className="shareBtnRecipesDetails">
+            <Share type="drink" id={ selectedCategory.id } testid="share-btn" />
+          </div>
+          <div className="favoriteBtnRecipesDetails">
+            <FavoriteButton
+              type="drink"
+              recipe={ {
+                idDrink: selectedCategory.id,
+                strDrink: selectedCategory.title,
+                strCategory: selectedCategory.category,
+                strDrinkThumb: selectedCategory.thumb,
+                strAlcoholic: selectedCategory.alcoholic,
+                type: 'drink',
+              } }
+              testid="favorite-btn"
+            />
+          </div>
         </>
       ) : (
         <>
-          <Share type="meal" id={ selectedCategory.id } testid="share-btn" />
-          <FavoriteButton
-            type="meal"
-            recipe={ {
-              idMeal: selectedCategory.id,
-              strArea: selectedCategory.area,
-              strMeal: selectedCategory.title,
-              strCategory: selectedCategory.category,
-              strMealThumb: selectedCategory.thumb,
-              alcoholicOrNot: '',
-              type: 'meal',
-            } }
-            testid="favorite-btn"
-          />
+          <div className="shareBtnRecipesDetails">
+            <Share type="meal" id={ selectedCategory.id } testid="share-btn" />
+          </div>
+          <div className="favoriteBtnRecipesDetails">
+            <FavoriteButton
+              type="meal"
+              recipe={ {
+                idMeal: selectedCategory.id,
+                strArea: selectedCategory.area,
+                strMeal: selectedCategory.title,
+                strCategory: selectedCategory.category,
+                strMealThumb: selectedCategory.thumb,
+                alcoholicOrNot: '',
+                type: 'meal',
+              } }
+              testid="favorite-btn"
+            />
+          </div>
         </>
       )}
 
