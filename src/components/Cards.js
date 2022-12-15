@@ -56,8 +56,9 @@ function Cards(props) {
         />
         {/* <h3 data-testid={ `${index}-horizontal-name` }>{ name }</h3> */}
       </Link>
-      <div className="cardInfos">
+      <div className="cardInformation">
         <Link
+          className="cardName"
           to={ type === 'meal' ? `/meals/${id}` : `/drinks/${id}` }
         >
           <h3 data-testid={ `${index}-horizontal-name` }>{ name }</h3>

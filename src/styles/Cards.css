@@ -1,3 +1,19 @@
+/* .cardImage {
+  display: flex;
+  flex-direction: column;
+} */
+
+.card-image {
+  border-radius: 50%;
+  display: flex;
+  width: 110px;
+}
+
+
+.cardName {
+  text-decoration: none;
+}
+
 .theCard {
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid white;
@@ -7,28 +23,18 @@
   width: 300px;
 }
 
-.cardImage {
-  display: flex;
-  flex-direction: column;
+.theCard h3 {
+  font-size: 16px;
+  text-decoration: none;
 }
 
-.card-image {
-  border-radius: 50%;
-  width: 110px;
-}
-
-.cardInfos {
-  margin-left: 30px;
-  margin-right: auto;
-}
-
-.uniqueCard h3 {
+.theCard h4 {
   font-size: 14px;
 }
 
-.uniqueCard h4 {
-  font-size: 12px;
-}
+/* .cardInformation {
+  display: flex;
+} */
 
 .buttons {
   text-align: center;

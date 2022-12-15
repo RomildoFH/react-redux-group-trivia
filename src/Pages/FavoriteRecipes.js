@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Cards from '../components/Cards';
+import '../styles/DoneRecipes.css';
 import All from '../images/All.png';
 import foods from '../images/foods.png';
 import drinks from '../images/drinks.png';
@@ -39,8 +40,9 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header title="Favorite Recipes" />
-      <div>
+      <div className="filters">
         <button
+          className="doneFiltersAll"
           // data-testid="filter-by-all-btn"
           type="button"
           name="all"
@@ -54,6 +56,7 @@ function FavoriteRecipes() {
           {/* All */}
         </button>
         <button
+          className="doneFiltersMeals"
           // data-testid="filter-by-meal-btn"
           type="button"
           name="meals"
@@ -67,6 +70,7 @@ function FavoriteRecipes() {
           {/* Meals */}
         </button>
         <button
+          className="doneFiltersDrinks"
           // data-testid="filter-by-drink-btn"
           type="button"
           name="drinks"
