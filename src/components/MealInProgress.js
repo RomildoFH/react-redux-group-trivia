@@ -81,8 +81,11 @@ function MealInProgress(props) {
   };
 
   return (
-    <div>
-      <div className="inProgressCard">
+    <div className="recipeInProgressContainer">
+      <div
+        className="inProgressCard"
+        // style={ { backgroundImage: `url(${strMealThumb})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' } }
+      >
         <img
           src={ recipe[0].strMealThumb }
           alt={ recipe[0].strMeal }
@@ -114,13 +117,13 @@ function MealInProgress(props) {
               recipe={ recipe[0] }
               type="meal"
             />
-            <div>
-              { wasShared && <p>Link copied!</p>}
-            </div>
+          </div>
+          <div className="copied-container">
+            { wasShared && <p>Link copied!</p>}
           </div>
         </div>
       </div>
-      <ul>
+      <ul className="ingredients-list">
         {
           ingredients.map((ingredient, index) => (
             <CheckBoxIngredients

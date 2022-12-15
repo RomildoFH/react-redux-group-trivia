@@ -75,7 +75,7 @@ function DrinkInProgress(props) {
   };
 
   return (
-    <div>
+    <div className="recipeInProgressContainer">
       <div className="inProgressCard">
         <img
           src={ recipe[0].strDrinkThumb }
@@ -109,9 +109,9 @@ function DrinkInProgress(props) {
               recipe={ recipe[0] }
               type="drink"
             />
-            <div>
-              { wasShared && <p>Link copied!</p>}
-            </div>
+          </div>
+          <div className="copied-container">
+            { wasShared && <p>Link copied!</p>}
           </div>
         </div>
       </div>
